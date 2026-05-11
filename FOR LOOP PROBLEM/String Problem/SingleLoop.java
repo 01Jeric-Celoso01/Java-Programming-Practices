@@ -332,7 +332,27 @@ public class SingleLoop {
         System.out.println("Total Even: " + count);
     }
 
+    // Count All The Odd Character in a String
+    public static void countAllOddCharacter() {
+        String str = "_H3!l0 W0r!d!_";
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (i % 2 == 0) {
+                count++;
+            }
+        }
+
+        System.out.println("Total Odd: " + count);
+    }
+
     /// FIND STRING
+    public static void findTheTargetCharacter() {
+        String str =
+    }
+
     /// CHECK STRING
 
     static void main(String[] args) {
