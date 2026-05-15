@@ -348,12 +348,7 @@ public class SingleLoop {
         System.out.println("Total Odd: " + count);
     }
 
-    /// FIND STRING
-    public static void findTheTargetCharacter() {
-        String str =
-    }
 
-    /// CHECK STRING
 
     static void main(String[] args) {
         countAllEvenCharacter();
