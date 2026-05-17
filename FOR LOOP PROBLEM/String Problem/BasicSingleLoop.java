@@ -670,6 +670,26 @@ public class BasicSingleLoop {
      }
 
     //Check if a string contains only lowercase letters
+    public static void checkIfStringAllLowercase() {
+        String str = "hello world";
+        boolean isAllLower = true;
+        
+        for(int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+            
+            if(!(chr >= 'a' && chr <= 'z') && chr != ' ') {
+                isAllLower = false;
+                break;
+            }
+        }
+        
+        if (isAllLower) {
+            System.out.println("The String is All Lowercase");
+        } else {
+            System.out.println("The String is not All Lowercase");
+        }
+    }
+    
     //Check if a string contains only uppercase letters
     //Check if a string contains spaces
     //Count how many times vowels appear individually
@@ -725,7 +745,7 @@ public class BasicSingleLoop {
     //Rotate string right by one character
     //Find the most frequent character
     //Find the least frequent character
-    static void main(String[] args) {
-        checkStringContainsAlphabet();
+    public static void main(String[] args) {
+        checkIfStringAllLowercase();
     }
 }
