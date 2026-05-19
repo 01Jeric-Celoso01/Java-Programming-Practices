@@ -691,11 +691,108 @@ public class BasicSingleLoop {
     }
     
     //Check if a string contains only uppercase letters
+    public static void checkIfStringAllUppercase() {
+        String str = "HeLLO";
+        boolean isUppercase = true;
+
+        for(int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (!(chr >= 'A' && chr <= 'Z')) {
+                isUppercase = false;
+                break;
+            }
+        }
+
+        if (isUppercase) {
+            System.out.println("The String is Uppercase Only");
+        } else {
+            System.out.println("The String is not Uppercase Only");
+        }
+    }
+
     //Check if a string contains spaces
+    public static void checkIfStringContainsSpaces() {
+        String str = "Hello World!";
+        boolean hasSpace = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == ' ') {
+                hasSpace = true;
+                break;
+            }
+        }
+
+        if (hasSpace) {
+            System.out.println("The String has a spaces");
+        } else {
+            System.out.println("The String don't have any spaces");
+        }
+    }
+
     //Count how many times vowels appear individually
+    public static void howManyTimesVowelsAppearIndividually() {
+        String str = "I Love Programming!";
+        int a = 0, e = 0, i = 0, o = 0, u = 0;
+
+        for (int x = 0; x < str.length(); x++) {
+            char chr = str.charAt(x);
+
+            if (chr == 'a' || chr == 'A') {
+                a++;
+            } else if (chr == 'e' || chr == 'E') {
+                e++;
+            } else if (chr == 'i' || chr == 'I') {
+                i++;
+            } else if (chr == 'o' || chr == 'O') {
+                o++;
+            } else if (chr == 'u' || chr == 'U') {
+                u++;
+            }
+        }
+
+        System.out.println("A count: " + a);
+        System.out.println("E count: " + e);
+        System.out.println("I count: " + i);
+        System.out.println("O count: " + o);
+        System.out.println("U count: " + u);
+    }
+
     //Print index and character together
+    public static void printIndexAndCharacter() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            System.out.println(i + " = " + chr);
+        }
+    }
     //Shift every character by +1 ASCII
+    public static void shiftEveryCharacterBy1ASCII() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+
+            chr = (char) (chr + 1);
+            System.out.print(chr);
+        }
+    }
     //Shift every character by -1 ASCII
+    public static void shiftEveryCharacterMinusOneASCII() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            chr = (char) (chr - 1);
+            System.out.print(chr);
+        }
+    }
     //Encrypt string using Caesar cipher (+3)
     //Decrypt Caesar cipher (-3)
     //Mirror characters (abc → cba)
@@ -746,6 +843,6 @@ public class BasicSingleLoop {
     //Find the most frequent character
     //Find the least frequent character
     public static void main(String[] args) {
-        checkIfStringAllLowercase();
+        shiftEveryCharacterMinusOneASCII();
     }
 }
