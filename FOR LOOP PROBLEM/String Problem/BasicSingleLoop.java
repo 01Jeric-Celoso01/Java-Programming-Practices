@@ -761,10 +761,95 @@ public class BasicSingleLoop {
     }
 
     //Print index and character together
+    public static void printIndexAndCharacter() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            System.out.println(i + " = " + chr);
+        }
+    }
     //Shift every character by +1 ASCII
+    public static void shiftEveryCharacterBy1ASCII() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+
+            chr = (char) (chr + 1);
+            System.out.print(chr);
+        }
+    }
     //Shift every character by -1 ASCII
+    public static void shiftEveryCharacterMinusOneASCII() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            chr = (char) (chr - 1);
+            System.out.print(chr);
+        }
+    }
+
     //Encrypt string using Caesar cipher (+3)
+    public static void encryptCaesarCipher() {
+        String str = "Hello World!";
+
+        for(int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr >= 'a' && chr <= 'z') {
+                chr = (char) (chr + 3);
+
+                if (chr > 'z') {
+                    chr = (char) (chr - 26);
+                } 
+            }
+
+            if (chr >= 'A' && chr <= 'Z') {
+                chr = (char) (chr + 3);
+
+                if (chr > 'Z') {
+                    chr = (char) (chr - 26);
+                }
+            }
+
+            System.out.print(chr);
+        }
+        System.out.println();
+    }
+
     //Decrypt Caesar cipher (-3)
+    public static void decryptCaesarCipher() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+
+            if (chr >= 'a' && chr <= 'z') {
+                chr = (char) (chr - 3);
+
+                if (chr > 'z') {
+                    chr = (char) (chr - 26);
+                }
+            }
+
+            if (chr >= 'A' && chr <= 'Z') {
+                chr = (char) (chr - 3);
+
+                if (chr > 'Z') {
+                    chr = (char) (chr - 26);
+                }
+            }
+
+            System.out.print(chr);
+        }
+    }
+    
     //Mirror characters (abc → cba)
     //Remove duplicate adjacent characters
     //Compress repeating adjacent characters
