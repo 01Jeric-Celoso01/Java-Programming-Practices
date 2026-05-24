@@ -849,22 +849,231 @@ public class BasicSingleLoop {
             System.out.print(chr);
         }
     }
-    
+
     //Mirror characters (abc → cba)
+    public static void mirrorCharacter() {
+        String str = "abcd";
+        String temp = str;
+        String reverse = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reverse = reverse + str.charAt(i);
+        }
+        System.out.println(temp);
+        System.out.println(reverse);
+    }
+
     //Remove duplicate adjacent characters
+    public static void adjacentCharacters() {
+        String str = "aaabbbbccddddd";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (i == str.length() - 1 || chr != str.charAt(i + 1)) {
+                System.out.print(chr);
+            }
+
+        }
+    }
     //Compress repeating adjacent characters
+    public static void compressRepeatingAdjacentCharacters() {
+        String str = "aaabbbcc";
+        int count = 1;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if(i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+            } else {
+                System.out.print(str.charAt(i));
+                System.out.print(count);
+                count = 1;
+            }
+        }
+        System.out.println();
+    }
+
     //Expand repeated character notation (a3 → aaa)
+    public static void expandRepeatedCharacter() {
+        String str = "a2c3b3";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (Character.isLetter(chr)) {
+                int count = (i + 1) - '0';
+
+                for (int j = 0; j < count; j++) {
+                    System.out.print(chr);
+                }
+            }
+            i++;
+        }
+    }
+
     //Count transitions between uppercase and lowercase
+    public static void countTransitionsUpperAndLower() {
+        String str = "HeLlO World";
+        int count = 0;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            char curr = str.charAt(i);
+            char next = str.charAt(i + 1);
+
+            if (Character.isUpperCase(curr) != Character.isUpperCase(next)) {
+                count++;
+            }
+        }
+        System.out.println("Total Transition Upper / Lower: " + count);
+    }
+
     //Print alternate uppercase/lowercase characters
+    public static void printAlternateUpperAndLower() {
+        String str = "Hello World";
+        int toggle = 0; // control case switching
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == ' ') {
+                System.out.print(chr);
+                continue;
+            }
+
+            if (toggle % 2 == 0) {
+                System.out.print(Character.toUpperCase(chr));
+            } else {
+                System.out.print(Character.toLowerCase(chr));
+            }
+            toggle++;
+        }
+        System.out.println();
+    }
+
     //Reverse only uppercase letters
     //Reverse only lowercase letters
+
     //Replace vowels with *
+    public static void replaceVowelsWithAsterisk() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if ((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z')) {
+                if ((chr == 'a' || chr == 'e' || chr == 'i' || chr == 'o' || chr == 'u') || 
+                    (chr == 'A' || chr == 'E' || chr == 'I' || chr == 'O' || chr == 'U')) {
+                        chr = '*';
+                    }
+            }
+            System.out.print(chr);
+        }
+    }
+
     //Replace digits with #
+    public static void replaceDigitsWithHashtag() {
+        String str = "123Hello World456";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr >= '0' && chr <= '9') {
+                chr = '#';
+            }
+            System.out.print(chr);
+        }
+    }
+
     //Replace consonants with _
+    public static void replaceConsonantsWithUnderscore() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if ((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z')) {
+                if ((chr != 'a' && chr != 'e' && chr != 'i' && chr != 'o' && chr != 'u') && 
+                    (chr != 'A' && chr != 'E' && chr != 'I' && chr != 'O' && chr != 'U')) {
+                        chr = '_';
+                    }
+            }
+            System.out.print(chr);
+        }
+    }
+
     //Print characters separated by commas
+    public static void printCharacterByCommas() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            System.out.print(chr + ", ");
+        }
+    }
+
     //Count punctuation marks
+    public static void countPunctuationMarks() {
+        String str = "Hello World!";
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (!(chr >= 'a' && chr <= 'z') && !(chr >= 'A' && chr <= 'Z') &&
+                !(chr >= '0' && chr <= '9') && chr != ' ') {
+                    count++;
+                }
+        }
+        System.out.println("Total Punctuation: " + count);
+    }
+
     //Find longest continuous uppercase sequence
+    public static void findLongestContinuesUpper() {
+        String str = "aBcDEFgh";
+        int count = 0;
+        int max = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+        
+            if (chr >= 'A' && chr <= 'Z') {
+                count++;
+
+                if (count > max) {
+                    max = count;
+                }
+            } else {
+                count = 0;
+            }
+        }
+        System.out.println("Total Continues Upper: " + max);
+    }
+
     //Find longest continuous lowercase sequence
+    public static void findLongestContinuesLower() {
+        String str = "abAcdeFGhIJ";
+        int count = 0;
+        int max = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if(chr >= 'a' && chr <= 'z') {
+                count++;
+
+                if (count > max) {
+                    max = count;
+                }
+            } else {
+                count = 0;
+            }
+        }
+        System.out.println("Total Continues Lower: " + max);
+    }
+
     //Detect double letters (oo, ee)
     //Count repeated adjacent characters
     //Check if all characters are unique
@@ -898,6 +1107,6 @@ public class BasicSingleLoop {
     //Find the most frequent character
     //Find the least frequent character
     public static void main(String[] args) {
-        howManyTimesVowelsAppearIndividually();
+        findLongestContinuesLower();
     }
 }
