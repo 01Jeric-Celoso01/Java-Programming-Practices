@@ -1157,9 +1157,65 @@ public class BasicSingleLoop {
     }
 
     //Print unique characters only
+    public static void printUniqueCharOnly() {
+        String str = "aabccdbe";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+            int count = 0;
+
+            for (int j = 0; j < str.length(); j++) {
+                if (str.charAt(j) == chr) {
+                    count++;
+                }
+            }
+
+            if (count == 1) {
+                System.out.print(chr);
+            }
+        }
+        System.out.println();
+    }
 
     //Remove consecutive spaces
+    public static void removeConsecutiveSpaces() {
+        String str = "java   is   very   fun";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (i == 0) {
+                System.out.print(chr);
+            } else {
+                char prev = str.charAt(i - 1);
+
+                if (!(chr == ' ' && prev == ' ')) {
+                    System.out.print(chr);
+                }
+            }
+        }
+        System.out.println();
+    }
+
     //Convert tabs to spaces
+    public static void convertTabToSpaces() {
+        String str = "java\tis\tfun";
+        int tabs = 4;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == '\t') {
+                for (int j = 0; j < tabs; j++) {
+                    System.out.print(' ');
+                }
+            } else {
+                System.out.print(chr);
+            }
+        }
+        System.out.println();
+    }
+
     //Count newline characters
     //Reverse words individually
     //Reverse entire sentence manually
@@ -1171,7 +1227,7 @@ public class BasicSingleLoop {
     //Find mismatch position between two strings
 
     public static void main(String[] args) {
-        mergeTwoStringsAlternately();
+        convertTabToSpaces();
     }
 
     //Merge two strings alternately
