@@ -1157,6 +1157,7 @@ public class BasicSingleLoop {
     }
 
     //Print unique characters only
+
     //Remove consecutive spaces
     //Convert tabs to spaces
     //Count newline characters
@@ -1169,37 +1170,191 @@ public class BasicSingleLoop {
     //Compare two strings character by character
     //Find mismatch position between two strings
     //Merge two strings alternately
+
+
     //Interleave uppercase and lowercase letters
+    static void interleave() {
+        String str = "aBcDeFgH";
+
+        String upper = "";
+        String lower = "";
+
+        // Step 1: separate characters
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            if (c >= 'A' && c <= 'Z') {
+                upper = upper + c;
+            }
+            else if (c >= 'a' && c <= 'z') {
+                lower = lower + c;
+            }
+        }
+
+        // Step 2: interleave and print
+        int i = 0, j = 0;
+        boolean turnUpper = true;
+
+        while (i < upper.length() || j < lower.length()) {
+
+            if (turnUpper && i < upper.length()) {
+                System.out.print(upper.charAt(i));
+                i++;
+            }
+            else if (!turnUpper && j < lower.length()) {
+                System.out.print(lower.charAt(j));
+                j++;
+            }
+
+            // switch logic when one side is exhausted
+            if (turnUpper && i >= upper.length()) {
+                turnUpper = false;
+            }
+            else if (!turnUpper && j >= lower.length()) {
+                turnUpper = true;
+            }
+            else {
+                turnUpper = !turnUpper;
+            }
+        }
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        interleave();
+    }
+
     //Convert CamelCase to spaced words
-    //Verify if a string is CamelCase
-    //Verify if a string is PascalCase
-    //Verify if a string is snake_case
-    public static void snakeCase() {
-        String str = "Hello World!";
+    public static void convertCamelToSpacedWords() {
+        String str = "helloWorld!";
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
-            if (chr == ' ') {
-                chr = '_';
+            if (i > 0) {
+                if (chr >= 'A' && chr <= 'Z') {
+                    System.out.print(" ");
+                }
             }
 
             System.out.print(chr);
         }
     }
 
-    //Verify if a string is kebab-case
-    public static void kebabCase() {
-        String str = "Hello World!";
+    //Verify if a string is CamelCase
+    public static void camelCase() {
+        String str = "iLoveProgramming";
+        boolean isCamelCase = true;
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
-            if (chr == ' ') {
-                chr = '-';
+            if (i == 0) {
+                if (chr >= 'A' && chr <= 'Z') {
+                    isCamelCase = false;
+                    break;
+                }
             }
 
-            System.out.print(chr);
+            if (!(chr >= 'a' && chr <= 'z') && !(chr >= 'A' && chr <= 'Z') &&
+                    !(chr >= '0' && chr <= '9')) {
+                isCamelCase = false;
+            }
+        }
+
+        if (isCamelCase) {
+            System.out.println("The String is a Pascal Case");
+        } else {
+            System.out.println("The String is not a Pascal Case");
+        }
+    }
+
+    //Verify if a string is PascalCase
+    public static void pascalCase() {
+        String str = "ILoveProgramming";
+        boolean isPascal = true;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (i == 0) {
+                if (chr >= 'a' && chr <= 'z') {
+                    isPascal = false;
+                    break;
+                }
+            }
+
+            if (!(chr >= 'a' && chr <= 'z') && !(chr >= 'A' && chr <= 'Z') && !(chr >= '0' && chr <= '9')) {
+                isPascal = false;
+                break;
+            }
+        }
+
+        if (isPascal) {
+            System.out.println("The String is Pascal Case");
+        } else {
+            System.out.println("The String is not Pascal Case");
+        }
+    }
+
+    //Verify if a string is snake_case
+    public static void snakeCase() {
+        String str = "hello_world!";
+        boolean isSnakeCase = true;
+
+        if ((str.charAt(0) == '_') || (str.charAt(str.length() - 1) == '_')) {
+            isSnakeCase = false;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (Character.isUpperCase(chr) || chr == ' ') {
+                isSnakeCase = false;
+            }
+
+            if (chr == '_') {
+                if (i > 0 && str.charAt(i - 1) == '_') {
+                    isSnakeCase = false;
+                }
+            }
+        }
+
+        if (isSnakeCase) {
+            System.out.println("The String is Snake Case");
+        } else {
+            System.out.println("The String is not Snake Case");
+        }
+    }
+
+    //Verify if a string is kebab-case
+    public static void kebabCase() {
+        String str = "hello-world!";
+        boolean isKebab = true;
+
+        if ((str.charAt(0) == '-') || (str.charAt(str.length() - 1) == '-')) {
+            isKebab = false;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (Character.isUpperCase(chr) || chr == ' ') {
+                isKebab = false;
+            }
+
+            if (chr == '-') {
+                if (i > 0 && str.charAt(i - 1) == '-') {
+                    isKebab = false;
+                }
+            }
+        }
+
+        if (isKebab) {
+            System.out.println("The String is Kebab Case");
+        } else {
+            System.out.println("The String is not Kebab Case");
         }
     }
 
@@ -1359,9 +1514,5 @@ public class BasicSingleLoop {
             }
         }
         System.out.println("Least Character is: " + minChar);;
-    }
-
-    public static void main(String[] args) {
-        snakeCase();
     }
 }
