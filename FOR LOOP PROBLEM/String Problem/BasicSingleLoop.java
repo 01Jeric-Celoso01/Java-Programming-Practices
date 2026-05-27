@@ -1169,7 +1169,35 @@ public class BasicSingleLoop {
     //Count matching characters between two strings
     //Compare two strings character by character
     //Find mismatch position between two strings
+
+    public static void main(String[] args) {
+        mergeTwoStringsAlternately();
+    }
+
     //Merge two strings alternately
+    public static void mergeTwoStringsAlternately() {
+        String str1 = "ace";
+        String str2 = "bdf";
+
+        int len1 = str1.length();
+        int len2 = str2.length();
+
+        int max = len1;
+        if (len2 > max) {
+            max = len2;
+        }
+
+        for (int i = 0; i < max; i++) {
+            if (i < len1) {
+                System.out.print(str1.charAt(i));
+            }
+
+            if (i < len2) {
+                System.out.print(str2.charAt(i));
+            }
+        }
+        System.out.println();
+    }
 
 
     //Interleave uppercase and lowercase letters
@@ -1219,10 +1247,6 @@ public class BasicSingleLoop {
         }
 
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        interleave();
     }
 
     //Convert CamelCase to spaced words
