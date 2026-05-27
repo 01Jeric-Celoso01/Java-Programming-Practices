@@ -1175,13 +1175,128 @@ public class BasicSingleLoop {
     //Verify if a string is PascalCase
     //Verify if a string is snake_case
     //Verify if a string is kebab-case
+    public static void kebabCase() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == ' ') {
+                chr = '-';
+            }
+
+            System.out.print(chr);
+        }
+    }
+
     //Detect whether a sentence ends with punctuation
+    public static void detectSentenceEndsWithPunctuation() {
+        String str = "Hello World!";
+        char last = str.charAt(str.length() - 1);
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+
+        }
+    }
+
     //Remove punctuation marks
+    public static void removePunctuation() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if ((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z') || chr == ' ') {
+                System.out.print(chr);
+            }
+        }
+        System.out.println();
+    }
+
     //Count sentences using . ! ?
+    public static void countSentenceUsingSpecialChar() {
+        String str = "Hello. World!";
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == '.' || chr == '!' || chr == '?') {
+                count++;
+            }
+        }
+        System.out.println("Total Sentence is: " + count);
+    }
+
     //Print every second character in reverse
+    public static void reverseEverySecondChar() {
+        String str = "abcdef";
+        String reverse = "";
+
+        for (int i = str.length() - 1; i >= 0; i -= 2) {
+            reverse = reverse + str.charAt(i);
+        }
+
+        System.out.println(reverse);
+    }
+
     //Swap adjacent characters
+    public static void swapAdjacentChar() {
+        String str = "abcdef";
+
+        String result = "";
+
+        for (int i = 0; i < str.length(); i += 2) {
+            if (i + 1 < str.length()) {
+                result = result + str.charAt(i + 1) + str.charAt(i);
+            } else {
+                result = result + str.charAt(i);
+            }
+        }
+
+        System.out.println(result);
+    }
+
     //Rotate string left by one character
+    public static void rotateLeftByOneChar() {
+        String str = "Hello";
+        char first = str.charAt(0);
+        String result = "";
+
+        if (str.length() <= 1) {
+            System.out.println(str);
+            return;
+        }
+
+        for (int i = 1; i < str.length(); i++) {
+            result = result + str.charAt(i);
+
+        }
+
+        result = result + first;
+        System.out.println(result);
+    }
+
     //Rotate string right by one character
+    public static void rotateRightByOneChar() {
+        String str = "Hello";
+        char last = str.charAt(str.length() - 1);
+        String result = "" + last;
+
+        if (str.length() <= 1) {
+            System.out.println(str);
+            return;
+        }
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            result = result + str.charAt(i);
+        }
+
+        System.out.println(result);
+    }
+
     //Find the most frequent character
     public static void mostFrequentChar() {
         String str = "Hello World!";
@@ -1233,6 +1348,6 @@ public class BasicSingleLoop {
     }
 
     public static void main(String[] args) {
-        mostFrequentChar();
+        kebabCase();
     }
 }
