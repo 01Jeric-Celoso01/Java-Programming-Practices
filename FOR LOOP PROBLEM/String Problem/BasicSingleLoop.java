@@ -1174,6 +1174,20 @@ public class BasicSingleLoop {
     //Verify if a string is CamelCase
     //Verify if a string is PascalCase
     //Verify if a string is snake_case
+    public static void snakeCase() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == ' ') {
+                chr = '_';
+            }
+
+            System.out.print(chr);
+        }
+    }
+
     //Verify if a string is kebab-case
     public static void kebabCase() {
         String str = "Hello World!";
@@ -1348,6 +1362,6 @@ public class BasicSingleLoop {
     }
 
     public static void main(String[] args) {
-        kebabCase();
+        snakeCase();
     }
 }
