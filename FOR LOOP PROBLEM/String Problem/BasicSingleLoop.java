@@ -1075,9 +1075,87 @@ public class BasicSingleLoop {
     }
 
     //Detect double letters (oo, ee)
+    public static void detectDoubleLetters() {
+        String str = "Hello World!";
+
+        boolean hasEE = false;
+        boolean hasOO = false;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            char current = Character.toLowerCase(str.charAt(i));
+            char next = Character.toLowerCase(str.charAt(i + 1));
+
+            if (current == 'e' && next == 'e') {
+                hasEE = true;
+            }
+
+            if (current == 'o' && next == 'o') {
+                hasOO = true;
+            }
+        }
+
+        if (hasEE) {
+            System.out.println("ee Detected");
+        }
+
+        if (hasOO) {
+            System.out.println("oo detected");
+        }
+
+        if (!hasEE && !hasOO) {
+            System.out.println("no o and e double letter detected");
+        }
+    }
+
     //Count repeated adjacent characters
+    public static void countRepeatedCharacters() {
+        String str = "Bookkepper";
+        int count = 0;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            char current = Character.toLowerCase(str.charAt(i));
+            char next = Character.toLowerCase(str.charAt(i + 1));
+
+            if (current == next) {
+                count++;
+            }
+        }
+
+        System.out.println("Total repeated Character is: " + count);
+    }
+
     //Check if all characters are unique
+    public static void isAllCharacterIsUnque() {
+        String str = "Hello";
+        boolean isAllUnique = true;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            char current = Character.toLowerCase(str.charAt(i));
+            char next = Character.toLowerCase(str.charAt(i + 1));
+
+            if (current == next) {
+                isAllUnique = false;
+            }
+        }
+
+        if (isAllUnique) {
+            System.out.println("All Character Is Unique");
+        } else {
+            System.out.println("All Character Is Not Unique");
+        }
+    }
+
     //Find duplicate characters
+    public static void findDuplicateCharacter() {
+        String str = "Hello World!";
+        boolean isDuplicate = true;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            char current = Character.toLowerCase(str.charAt(i));
+            char next = Character.toLowerCase(str.charAt(i + 1));
+        }
+    }
+
     //Print unique characters only
     //Remove consecutive spaces
     //Convert tabs to spaces
@@ -1105,8 +1183,56 @@ public class BasicSingleLoop {
     //Rotate string left by one character
     //Rotate string right by one character
     //Find the most frequent character
+    public static void mostFrequentChar() {
+        String str = "Hello World!";
+        char maxChar = str.charAt(0);
+        int maxFreq = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char curr = str.charAt(i);
+            int count = 0;
+
+            for (int j = 0; j < str.length(); j++) {
+                if (str.charAt(j) == curr) {
+                    count++;
+                }
+
+                if (count > maxFreq) {
+                    maxFreq = count;
+                    maxChar = curr;
+                }
+            }
+        }
+
+        System.out.println("Most Frequent Character Is: " + maxChar);
+    }
+
     //Find the least frequent character
+    public static void leastFrequentChar() {
+        String str = "Hello World";
+        char minChar = str.charAt(0);
+        int minFreq = Integer.MAX_VALUE;
+
+        for (int i = 0; i < str.length(); i++) {
+            char current = str.charAt(i);
+            int count = 0;
+
+            for (int j = 0; j < str.length(); j++) {
+               if (str.charAt(j) == current) {
+                    count++;
+              }
+            }
+
+            // update minimum
+            if (count < minFreq) {
+                minFreq = count;
+                minChar = current;
+            }
+        }
+        System.out.println("Least Character is: " + minChar);;
+    }
+
     public static void main(String[] args) {
-        findLongestContinuesLower();
+        mostFrequentChar();
     }
 }
