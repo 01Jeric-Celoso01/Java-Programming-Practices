@@ -1157,6 +1157,7 @@ public class BasicSingleLoop {
     }
 
     //Print unique characters only
+<<<<<<< HEAD
     public static void printUniqueCharOnly() {
         String str = "aabccdbe";
 
@@ -1166,24 +1167,45 @@ public class BasicSingleLoop {
 
             for (int j = 0; j < str.length(); j++) {
                 if (str.charAt(j) == chr) {
+=======
+    public static void printUniqueCharacters() {
+        String str = "Hello World!";
+
+        for (int i = 0; i < str.length(); i++) {
+            int count = 0;
+            char chr = str.charAt(i);
+            for (int j = 0; j < str.length(); j++) {
+                if (chr == str.charAt(j)) {
+>>>>>>> 1c11371 (Update all)
                     count++;
                 }
             }
 
             if (count == 1) {
+<<<<<<< HEAD
                 System.out.print(chr);
             }
         }
         System.out.println();
+=======
+                System.out.println(chr);
+            }
+        }
+>>>>>>> 1c11371 (Update all)
     }
 
     //Remove consecutive spaces
     public static void removeConsecutiveSpaces() {
+<<<<<<< HEAD
         String str = "java   is   very   fun";
+=======
+        String str = "I  Love  Programming";
+>>>>>>> 1c11371 (Update all)
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
+<<<<<<< HEAD
             if (i == 0) {
                 System.out.print(chr);
             } else {
@@ -1192,19 +1214,29 @@ public class BasicSingleLoop {
                 if (!(chr == ' ' && prev == ' ')) {
                     System.out.print(chr);
                 }
+=======
+            if(!(chr == ' ' && i > 0 && str.charAt(i - 1) == ' ')) {
+                System.out.print(chr);
+>>>>>>> 1c11371 (Update all)
             }
         }
         System.out.println();
     }
 
     //Convert tabs to spaces
+<<<<<<< HEAD
     public static void convertTabToSpaces() {
         String str = "java\tis\tfun";
         int tabs = 4;
+=======
+    public static void convertNewLineCharacters() {
+        String str = "Hello\nWorld!";
+>>>>>>> 1c11371 (Update all)
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
+<<<<<<< HEAD
             if (chr == '\t') {
                 for (int j = 0; j < tabs; j++) {
                     System.out.print(' ');
@@ -1212,12 +1244,54 @@ public class BasicSingleLoop {
             } else {
                 System.out.print(chr);
             }
+=======
+            if (chr == '\n') {
+                chr = ' ';
+            }
+
+            System.out.print(chr);
+>>>>>>> 1c11371 (Update all)
         }
         System.out.println();
     }
 
     //Count newline characters
+    public static void countNewLineCharacters() {
+        String str = "\nHello\nWorld\n";
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr == '\n') {
+                count++;
+            }
+        }
+        System.out.println("Total new line is: " + count);
+    }
     //Reverse words individually
+    public static void reverseWordsIndividually() {
+        String str = "Hello World";
+        String word = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char chr = str.charAt(i);
+
+            if (chr != ' ') {
+                word += chr;
+            } else {
+                for (int j = str.length() - 1; j >= 0; j--) {
+                    System.out.print(word.charAt(j));
+                }
+                System.out.println(" ");
+                word = "";
+            }
+        }
+
+        for (int i = word.length() - 1; i >= 0; i--) {
+            System.out.print(word.charAt(i));
+        }
+    }
     //Reverse entire sentence manually
     //Check if string is palindrome
     //Check if string is palindrome ignoring spaces
@@ -1306,6 +1380,7 @@ public class BasicSingleLoop {
     }
 
     //Convert CamelCase to spaced words
+<<<<<<< HEAD
     public static void convertCamelToSpacedWords() {
         String str = "helloWorld!";
 
@@ -1350,6 +1425,9 @@ public class BasicSingleLoop {
         }
     }
 
+=======
+    //Verify if a strin;g is CamelCase
+>>>>>>> 1c11371 (Update all)
     //Verify if a string is PascalCase
     public static void pascalCase() {
         String str = "ILoveProgramming";
@@ -1547,6 +1625,7 @@ public class BasicSingleLoop {
     }
 
     //Find the most frequent character
+
     public static void mostFrequentChar() {
         String str = "Hello World!";
         char maxChar = str.charAt(0);
@@ -1595,4 +1674,11 @@ public class BasicSingleLoop {
         }
         System.out.println("Least Character is: " + minChar);;
     }
+<<<<<<< HEAD
+=======
+
+    public static void main(String[] args) {
+        reverseWordsIndividually();
+    }
+>>>>>>> 1c11371 (Update all)
 }
