@@ -1157,17 +1157,6 @@ public class BasicSingleLoop {
     }
 
     //Print unique characters only
-<<<<<<< HEAD
-    public static void printUniqueCharOnly() {
-        String str = "aabccdbe";
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-            int count = 0;
-
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(j) == chr) {
-=======
     public static void printUniqueCharacters() {
         String str = "Hello World!";
 
@@ -1176,81 +1165,42 @@ public class BasicSingleLoop {
             char chr = str.charAt(i);
             for (int j = 0; j < str.length(); j++) {
                 if (chr == str.charAt(j)) {
->>>>>>> 1c11371 (Update all)
                     count++;
                 }
             }
 
             if (count == 1) {
-<<<<<<< HEAD
-                System.out.print(chr);
-            }
-        }
-        System.out.println();
-=======
                 System.out.println(chr);
             }
         }
->>>>>>> 1c11371 (Update all)
     }
 
     //Remove consecutive spaces
     public static void removeConsecutiveSpaces() {
-<<<<<<< HEAD
-        String str = "java   is   very   fun";
-=======
         String str = "I  Love  Programming";
->>>>>>> 1c11371 (Update all)
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
-<<<<<<< HEAD
-            if (i == 0) {
-                System.out.print(chr);
-            } else {
-                char prev = str.charAt(i - 1);
-
-                if (!(chr == ' ' && prev == ' ')) {
-                    System.out.print(chr);
-                }
-=======
             if(!(chr == ' ' && i > 0 && str.charAt(i - 1) == ' ')) {
                 System.out.print(chr);
->>>>>>> 1c11371 (Update all)
             }
         }
         System.out.println();
     }
 
     //Convert tabs to spaces
-<<<<<<< HEAD
-    public static void convertTabToSpaces() {
-        String str = "java\tis\tfun";
-        int tabs = 4;
-=======
     public static void convertNewLineCharacters() {
         String str = "Hello\nWorld!";
->>>>>>> 1c11371 (Update all)
 
         for (int i = 0; i < str.length(); i++) {
             char chr = str.charAt(i);
 
-<<<<<<< HEAD
-            if (chr == '\t') {
-                for (int j = 0; j < tabs; j++) {
-                    System.out.print(' ');
-                }
-            } else {
-                System.out.print(chr);
-            }
-=======
             if (chr == '\n') {
                 chr = ' ';
             }
 
             System.out.print(chr);
->>>>>>> 1c11371 (Update all)
         }
         System.out.println();
     }
@@ -1299,331 +1249,20 @@ public class BasicSingleLoop {
     //Count matching characters between two strings
     //Compare two strings character by character
     //Find mismatch position between two strings
-
-    public static void main(String[] args) {
-        convertTabToSpaces();
-    }
-
     //Merge two strings alternately
-    public static void mergeTwoStringsAlternately() {
-        String str1 = "ace";
-        String str2 = "bdf";
-
-        int len1 = str1.length();
-        int len2 = str2.length();
-
-        int max = len1;
-        if (len2 > max) {
-            max = len2;
-        }
-
-        for (int i = 0; i < max; i++) {
-            if (i < len1) {
-                System.out.print(str1.charAt(i));
-            }
-
-            if (i < len2) {
-                System.out.print(str2.charAt(i));
-            }
-        }
-        System.out.println();
-    }
-
-
     //Interleave uppercase and lowercase letters
-    static void interleave() {
-        String str = "aBcDeFgH";
-
-        String upper = "";
-        String lower = "";
-
-        // Step 1: separate characters
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            if (c >= 'A' && c <= 'Z') {
-                upper = upper + c;
-            }
-            else if (c >= 'a' && c <= 'z') {
-                lower = lower + c;
-            }
-        }
-
-        // Step 2: interleave and print
-        int i = 0, j = 0;
-        boolean turnUpper = true;
-
-        while (i < upper.length() || j < lower.length()) {
-
-            if (turnUpper && i < upper.length()) {
-                System.out.print(upper.charAt(i));
-                i++;
-            }
-            else if (!turnUpper && j < lower.length()) {
-                System.out.print(lower.charAt(j));
-                j++;
-            }
-
-            // switch logic when one side is exhausted
-            if (turnUpper && i >= upper.length()) {
-                turnUpper = false;
-            }
-            else if (!turnUpper && j >= lower.length()) {
-                turnUpper = true;
-            }
-            else {
-                turnUpper = !turnUpper;
-            }
-        }
-
-        System.out.println();
-    }
-
     //Convert CamelCase to spaced words
-<<<<<<< HEAD
-    public static void convertCamelToSpacedWords() {
-        String str = "helloWorld!";
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (i > 0) {
-                if (chr >= 'A' && chr <= 'Z') {
-                    System.out.print(" ");
-                }
-            }
-
-            System.out.print(chr);
-        }
-    }
-
-    //Verify if a string is CamelCase
-    public static void camelCase() {
-        String str = "iLoveProgramming";
-        boolean isCamelCase = true;
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (i == 0) {
-                if (chr >= 'A' && chr <= 'Z') {
-                    isCamelCase = false;
-                    break;
-                }
-            }
-
-            if (!(chr >= 'a' && chr <= 'z') && !(chr >= 'A' && chr <= 'Z') &&
-                    !(chr >= '0' && chr <= '9')) {
-                isCamelCase = false;
-            }
-        }
-
-        if (isCamelCase) {
-            System.out.println("The String is a Pascal Case");
-        } else {
-            System.out.println("The String is not a Pascal Case");
-        }
-    }
-
-=======
     //Verify if a strin;g is CamelCase
->>>>>>> 1c11371 (Update all)
     //Verify if a string is PascalCase
-    public static void pascalCase() {
-        String str = "ILoveProgramming";
-        boolean isPascal = true;
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (i == 0) {
-                if (chr >= 'a' && chr <= 'z') {
-                    isPascal = false;
-                    break;
-                }
-            }
-
-            if (!(chr >= 'a' && chr <= 'z') && !(chr >= 'A' && chr <= 'Z') && !(chr >= '0' && chr <= '9')) {
-                isPascal = false;
-                break;
-            }
-        }
-
-        if (isPascal) {
-            System.out.println("The String is Pascal Case");
-        } else {
-            System.out.println("The String is not Pascal Case");
-        }
-    }
-
     //Verify if a string is snake_case
-    public static void snakeCase() {
-        String str = "hello_world!";
-        boolean isSnakeCase = true;
-
-        if ((str.charAt(0) == '_') || (str.charAt(str.length() - 1) == '_')) {
-            isSnakeCase = false;
-        }
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (Character.isUpperCase(chr) || chr == ' ') {
-                isSnakeCase = false;
-            }
-
-            if (chr == '_') {
-                if (i > 0 && str.charAt(i - 1) == '_') {
-                    isSnakeCase = false;
-                }
-            }
-        }
-
-        if (isSnakeCase) {
-            System.out.println("The String is Snake Case");
-        } else {
-            System.out.println("The String is not Snake Case");
-        }
-    }
-
     //Verify if a string is kebab-case
-    public static void kebabCase() {
-        String str = "hello-world!";
-        boolean isKebab = true;
-
-        if ((str.charAt(0) == '-') || (str.charAt(str.length() - 1) == '-')) {
-            isKebab = false;
-        }
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (Character.isUpperCase(chr) || chr == ' ') {
-                isKebab = false;
-            }
-
-            if (chr == '-') {
-                if (i > 0 && str.charAt(i - 1) == '-') {
-                    isKebab = false;
-                }
-            }
-        }
-
-        if (isKebab) {
-            System.out.println("The String is Kebab Case");
-        } else {
-            System.out.println("The String is not Kebab Case");
-        }
-    }
-
     //Detect whether a sentence ends with punctuation
-    public static void detectSentenceEndsWithPunctuation() {
-        String str = "Hello World!";
-        char last = str.charAt(str.length() - 1);
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-
-        }
-    }
-
     //Remove punctuation marks
-    public static void removePunctuation() {
-        String str = "Hello World!";
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if ((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z') || chr == ' ') {
-                System.out.print(chr);
-            }
-        }
-        System.out.println();
-    }
-
     //Count sentences using . ! ?
-    public static void countSentenceUsingSpecialChar() {
-        String str = "Hello. World!";
-        int count = 0;
-
-        for (int i = 0; i < str.length(); i++) {
-            char chr = str.charAt(i);
-
-            if (chr == '.' || chr == '!' || chr == '?') {
-                count++;
-            }
-        }
-        System.out.println("Total Sentence is: " + count);
-    }
-
     //Print every second character in reverse
-    public static void reverseEverySecondChar() {
-        String str = "abcdef";
-        String reverse = "";
-
-        for (int i = str.length() - 1; i >= 0; i -= 2) {
-            reverse = reverse + str.charAt(i);
-        }
-
-        System.out.println(reverse);
-    }
-
     //Swap adjacent characters
-    public static void swapAdjacentChar() {
-        String str = "abcdef";
-
-        String result = "";
-
-        for (int i = 0; i < str.length(); i += 2) {
-            if (i + 1 < str.length()) {
-                result = result + str.charAt(i + 1) + str.charAt(i);
-            } else {
-                result = result + str.charAt(i);
-            }
-        }
-
-        System.out.println(result);
-    }
-
     //Rotate string left by one character
-    public static void rotateLeftByOneChar() {
-        String str = "Hello";
-        char first = str.charAt(0);
-        String result = "";
-
-        if (str.length() <= 1) {
-            System.out.println(str);
-            return;
-        }
-
-        for (int i = 1; i < str.length(); i++) {
-            result = result + str.charAt(i);
-
-        }
-
-        result = result + first;
-        System.out.println(result);
-    }
-
     //Rotate string right by one character
-    public static void rotateRightByOneChar() {
-        String str = "Hello";
-        char last = str.charAt(str.length() - 1);
-        String result = "" + last;
-
-        if (str.length() <= 1) {
-            System.out.println(str);
-            return;
-        }
-
-        for (int i = 0; i < str.length() - 1; i++) {
-            result = result + str.charAt(i);
-        }
-
-        System.out.println(result);
-    }
-
     //Find the most frequent character
 
     public static void mostFrequentChar() {
@@ -1674,11 +1313,8 @@ public class BasicSingleLoop {
         }
         System.out.println("Least Character is: " + minChar);;
     }
-<<<<<<< HEAD
-=======
 
     public static void main(String[] args) {
         reverseWordsIndividually();
     }
->>>>>>> 1c11371 (Update all)
 }
