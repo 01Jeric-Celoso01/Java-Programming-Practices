@@ -1315,6 +1315,6 @@ public class BasicSingleLoop {
     }
 
     public static void main(String[] args) {
-        reverseWordsIndividually();
+        
     }
 }
